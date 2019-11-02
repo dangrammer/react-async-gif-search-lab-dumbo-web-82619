@@ -11,10 +11,15 @@ class GifSearch extends React.Component {
       searchTerm: event.target.value
     })
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.fetchGifs(this.state.searchTerm)
+  }
   
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor={'searchInput'}>Enter a search term:</label>
         <input 
           type='text' 
